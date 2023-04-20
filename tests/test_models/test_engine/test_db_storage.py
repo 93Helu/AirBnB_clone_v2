@@ -6,19 +6,19 @@ Contains the TestDBStorageDocs and TestDBStorage classes
 from datetime import datetime
 import inspect
 import models
-from models.engine import db_storage
-from models.amenity import Amenity
-from models.base_model import BaseModel
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
-from models.user import User
+from tests.test_models.test_engine import test_db_storage
+from tests.test_models.test_amenity import Amenity
+from tests.test_models.test_base_model import BaseModel
+from tests.test_models.test_city import City
+from tests.test_models.test_place import Place
+from tests.test_models.test_review import Review
+from tests.test_models.test_state import State
+from tests.test_models.test_user import User
 import json
 import os
 import pep8
 import unittest
-DBStorage = db_storage.DBStorage
+DBStorage = test_db_storage.DBStorage
 classes = {"Amenity": Amenity, "City": City, "Place": Place,
            "Review": Review, "State": State, "User": User}
 
@@ -47,9 +47,9 @@ test_db_storage.py'])
 
     def test_db_storage_module_docstring(self):
         """Test for the db_storage.py module docstring"""
-        self.assertIsNot(db_storage.__doc__, None,
+        self.assertIsNot(test_db_storage.__doc__, None,
                          "db_storage.py needs a docstring")
-        self.assertTrue(len(db_storage.__doc__) >= 1,
+        self.assertTrue(len(test_db_storage.__doc__) >= 1,
                         "db_storage.py needs a docstring")
 
     def test_db_storage_class_docstring(self):
