@@ -5,12 +5,12 @@ Contains the TestAmenityDocs classes
 
 from datetime import datetime
 import inspect
-import tests.test_models
-from tests.test_models import test_amenity
-from tests.test_models.test_base_model import BaseModel
+import models
+from models import amenity
+from models.base_model import BaseModel
 import pep8
 import unittest
-Amenity = test_amenity.Amenity
+Amenity = amenity.Amenity
 
 
 class TestAmenityDocs(unittest.TestCase):
@@ -36,9 +36,9 @@ class TestAmenityDocs(unittest.TestCase):
 
     def test_amenity_module_docstring(self):
         """Test for the amenity.py module docstring"""
-        self.assertIsNot(test_amenity.__doc__, None,
+        self.assertIsNot(amenity.__doc__, None,
                          "amenity.py needs a docstring")
-        self.assertTrue(len(test_amenity.__doc__) >= 1,
+        self.assertTrue(len(amenity.__doc__) >= 1,
                         "amenity.py needs a docstring")
 
     def test_amenity_class_docstring(self):
@@ -71,7 +71,7 @@ class TestAmenity(unittest.TestCase):
         """Test that Amenity has attribute name, and it's as an empty string"""
         amenity = Amenity()
         self.assertTrue(hasattr(amenity, "name"))
-        if tests.test_models.storage_t == 'db':
+        if models.storage_t == 'db':
             self.assertEqual(amenity.name, None)
         else:
             self.assertEqual(amenity.name, "")

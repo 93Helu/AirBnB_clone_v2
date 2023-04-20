@@ -6,19 +6,19 @@ Contains the TestFileStorageDocs classes
 from datetime import datetime
 import inspect
 import models
-from tests.test_models.test_engine import test_file_storage
-from tests.test_models.test_amenity import Amenity
-from tests.test_models.test_base_model import BaseModel
-from tests.test_models.test_city import City
-from tests.test_models.test_place import Place
-from tests.test_models.test_review import Review
-from tests.test_models.test_state import State
-from tests.test_models.test_user import User
+from models.engine import file_storage
+from models.amenity import Amenity
+from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 import json
 import os
 import pep8
 import unittest
-FileStorage = test_file_storage.FileStorage
+FileStorage = file_storage.FileStorage
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
 
@@ -47,9 +47,9 @@ test_file_storage.py'])
 
     def test_file_storage_module_docstring(self):
         """Test for the file_storage.py module docstring"""
-        self.assertIsNot(test_file_storage.__doc__, None,
+        self.assertIsNot(file_storage.__doc__, None,
                          "file_storage.py needs a docstring")
-        self.assertTrue(len(test_file_storage.__doc__) >= 1,
+        self.assertTrue(len(file_storage.__doc__) >= 1,
                         "file_storage.py needs a docstring")
 
     def test_file_storage_class_docstring(self):
